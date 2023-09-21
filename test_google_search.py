@@ -7,8 +7,6 @@ def test_successful_search(browser_open):
     browser.element('[id="search"]').should(have.text("yashaka/selene: User-oriented Web UI browser tests in ..."))
 
 
-def test_unsuccessful_search(browser_open):
+def test_unsuccessful_search(browser_open, results=None):
     browser.element('[name="q"]').should(be.blank).type('argonpoenh').press_enter()
-#    query = browser.element('[id="search"]').should(have.text("argonpoenh"))
-    results = browser.element('[id="oFNiHe"]')
-    assert results == browser.element('[id="search"]'), "Поиск не выдает результатов"
+    browser.element('[class="mnr-c"]').should(have.text("По запросу argonpoenh ничего не найдено"))

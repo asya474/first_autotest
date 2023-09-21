@@ -3,10 +3,11 @@ from selene import browser
 from selenium import webdriver
 
 
-@pytest.fixture(scope="module")
+@pytest.fixture(scope="function")
 def browser_open():
-    driver = webdriver.Chrome()
-    driver.set_window_size(1024, 768)
+    browser.config.window_width=1920
+    browser.config.window_height=1080
     browser.open('https://google.com/')
+
 
 
